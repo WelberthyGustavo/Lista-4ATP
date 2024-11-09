@@ -1,0 +1,15 @@
+/workspaces/Lista-5ATP/bin/Debug/net8.0/Lista-5ATP
+/workspaces/Lista-5ATP/bin/Debug/net8.0/Lista-5ATP.deps.json
+/workspaces/Lista-5ATP/bin/Debug/net8.0/Lista-5ATP.runtimeconfig.json
+/workspaces/Lista-5ATP/bin/Debug/net8.0/Lista-5ATP.dll
+/workspaces/Lista-5ATP/bin/Debug/net8.0/Lista-5ATP.pdb
+/workspaces/Lista-5ATP/obj/Debug/net8.0/Lista-5ATP.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/Lista-5ATP/obj/Debug/net8.0/Lista-5ATP.AssemblyInfoInputs.cache
+/workspaces/Lista-5ATP/obj/Debug/net8.0/Lista-5ATP.AssemblyInfo.cs
+/workspaces/Lista-5ATP/obj/Debug/net8.0/Lista-5ATP.csproj.CoreCompileInputs.cache
+/workspaces/Lista-5ATP/obj/Debug/net8.0/Lista-5ATP.sourcelink.json
+/workspaces/Lista-5ATP/obj/Debug/net8.0/Lista-5ATP.dll
+/workspaces/Lista-5ATP/obj/Debug/net8.0/refint/Lista-5ATP.dll
+/workspaces/Lista-5ATP/obj/Debug/net8.0/Lista-5ATP.pdb
+/workspaces/Lista-5ATP/obj/Debug/net8.0/Lista-5ATP.genruntimeconfig.cache
+/workspaces/Lista-5ATP/obj/Debug/net8.0/ref/Lista-5ATP.dll
