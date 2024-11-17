@@ -8,6 +8,7 @@ using Outubro;
 using Primos;
 using Matriz;
 using Transposta;
+using TrocaMatriz;
 
 class Program{
     public static void Main(string[] args){
@@ -21,6 +22,7 @@ class Program{
         //MatrizPrimos.GerarMatriz();
         //MatrizGerar.GerarMatrizEExibirSomas();
         //MatrizT.GerarMatrizEExibirTransposta();
+        //MatrizTroca.GerarMatrizETrocar();
 
 
     }
