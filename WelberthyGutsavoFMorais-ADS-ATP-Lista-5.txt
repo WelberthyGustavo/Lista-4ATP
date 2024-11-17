@@ -1,0 +1,657 @@
+Lista de ATP 05 - Expressões
+
+Nome: Welberthy Gustavo de Freitas Morais
+Curso: ADS
+
+
+===============================================================
+Program Main
+===============================================================
+
+using System;
+using Pares;
+using Notas;
+using Menor;
+using Vetores;
+using Sorteio;
+using Outubro;
+using Primos;
+using Matriz;
+using Transposta;
+using TrocaMatriz;
+
+class Program{
+    public static void Main(string[] args){
+
+        //ParesNumbers.Numbers();
+        //NotasDaTurma.GerarNotas();
+        //MenorElemento.Gerar();
+        //UnirVetores.GerarVetores();
+        //SorteioNumeros.Jogar();
+        //TemperaturaOutubro.Temperaturas();
+        //MatrizPrimos.GerarMatriz();
+        //MatrizGerar.GerarMatrizEExibirSomas();
+        //MatrizT.GerarMatrizEExibirTransposta();
+        //MatrizTroca.GerarMatrizETrocar();
+
+
+    }
+}
+
+
+===============================================================
+Questão 01
+===============================================================
+
+using System.Globalization;
+//Exercicio - 1
+
+namespace Pares;
+
+class ParesNumbers{
+    public static int[] Numbers(){
+        int[] Numbers = new int[14];
+         
+        Random random = new Random();
+         
+        for (int i = 0; i < Numbers.Length; i++)
+        {
+            Numbers[i] = random.Next(1, 101);  
+        }
+
+        Console.WriteLine("Números aleatórios no vetor:");
+        foreach (int numero in Numbers)
+        {
+            Console.WriteLine(numero);
+        }
+
+        Pares(Numbers);
+
+        return Numbers;
+    }
+
+    public static int[] Pares(int[] vetor){
+
+        int[] newVetor = new int[(vetor.Length + 1) / 2];
+        int j = 0;
+        for(int i = 0; i < vetor.Length; i++){
+            if(i % 2 == 0){
+                newVetor[j] = vetor[i];
+                j++;
+            }
+        }
+
+        Console.WriteLine("Números na posições pares:");
+
+        foreach (int num in newVetor)
+        {
+            Console.WriteLine(num);
+        }
+        
+        return newVetor;
+      
+    }
+}
+
+
+===============================================================
+Questão 02
+===============================================================
+
+using System;
+//Exercicio - 2
+
+namespace Notas;
+
+class NotasDaTurma(){
+    public static void GerarNotas(){
+
+        double[] notas = new double[10];
+        Random random = new Random();
+
+        for(int i = 0; i < notas.Length; i++){
+            notas[i] = random.Next(1, 101);
+            Console.WriteLine(notas[i]);
+        }
+
+        Media(notas);
+    }
+
+    public static void Media(double[] vetor){
+
+        double[] notas = new double[vetor.Length];
+        double soma = 0;
+        double media = 0;
+        int numerosAlunos = 0;
+
+        for(int i = 0; i < notas.Length; i++){
+            notas[i] = vetor[i];
+        }
+
+        for(int i = 0; i < notas.Length; i++){
+            soma += notas[i];
+        }
+
+        media = soma / notas.Length;
+
+        for(int i = 0; i < notas.Length; i++){
+            if(notas[i] >= media){
+                numerosAlunos++;
+            }
+        }
+        Console.WriteLine($"Numero da media das notas dos alunos foi: {media}");
+        Console.WriteLine($"Numero de Alunos acima da media foi: {numerosAlunos}");
+        
+    }
+
+}
+
+
+===============================================================
+Questão 03
+===============================================================
+
+using System;
+//Exercicio - 3
+
+namespace Menor;
+
+class MenorElemento{
+    public static void Gerar(){
+        int ele = 0;
+
+        Console.WriteLine("Digite o numero de Elementos:");
+        int num = int.Parse(Console.ReadLine());
+
+        int[] vetor = new int[num - 1];
+
+        for(int i = 0; i < vetor.Length; i++){
+            Console.WriteLine($"Digite o o valor do {i + 1} Elemento:");
+            ele = int.Parse(Console.ReadLine());
+            vetor[i] = ele;
+        }
+
+        foreach(int number in vetor){
+            Console.WriteLine(number);
+        }
+
+        Console.WriteLine($"Menor elemento foi: {Menor(vetor)}");
+
+        
+    }
+
+    public static int Menor(int[] vetor){
+        int menor = int.MaxValue;
+        for(int i = 0; i < vetor.Length; i++){
+            if(vetor[i] < menor) 
+                menor = vetor[i];
+        }
+        return menor;
+    }
+
+}
+
+
+===============================================================
+Questão 04
+===============================================================
+
+using System;
+// Exercicio - 4
+
+namespace Vetores;
+
+public class UnirVetores{
+    public static void GerarVetores(){
+
+        int[] x = new int[10];
+        int[] y = new int[10];
+        int[] z = new int[20];
+
+        Random random = new Random();
+
+        Console.WriteLine("Primeiro vetor:");
+        for(int i = 0; i < x.Length; i++){
+            x[i] = random.Next(1, 101);
+            Console.WriteLine(x[i]);
+        }
+
+        Console.WriteLine("Segundo vetor:");
+        for(int i = 0; i < x.Length; i++){
+            y[i] = random.Next(1, 101);
+            Console.WriteLine(y[i]);
+        }
+
+        z = Unir(x, y);
+
+        Console.WriteLine("Novo vetor:");
+        for(int i = 0; i < z.Length; i++){
+            Console.WriteLine(z[i]);
+        }
+    }
+
+    public static int[] Unir(int[] x, int[] y){
+
+        int[] z = new int[x.Length + y.Length]; 
+        int j = 0;
+
+        for (int i = 0; i < z.Length; i++){
+
+            if (i % 2 == 0){
+                z[i] = y[j];
+            }
+            else{
+                z[i] = x[j];
+                j++; 
+            }
+        }
+
+        return z;
+    }
+
+}
+
+
+===============================================================
+Questão 05
+===============================================================
+
+using System;
+// Exercicio - 5
+
+namespace Sorteio;
+
+public class SorteioNumeros{
+
+    public static void Jogar(){
+
+        int[] numSort = new int[5];
+        numSort = Sortear();
+        bool found = false;
+
+        while(found == false){
+            Console.WriteLine("Digite um numero de 10 a 30:");
+            int num = int.Parse(Console.ReadLine());
+
+            for(int i = 0; i < numSort.Length; i++){
+                if(num == numSort[i]){
+                    Console.WriteLine($"Voce acertou o numero sorteado: {numSort[i]}");
+                    found = true;
+                }
+            }
+        }
+
+    }
+
+    public static int[] Sortear(){
+
+        int[] numbers = new int[5];
+
+        Random random = new Random();
+
+        for(int i = 0; i < numbers.Length; i++){
+            numbers[i] = random.Next(10, 31);
+        }
+
+        return numbers;
+
+    }
+
+}
+
+
+===============================================================
+Questão 06
+===============================================================
+
+using System;
+//Exercicio - 6
+
+namespace Outubro;
+
+class TemperaturaOutubro{
+    public static void Temperaturas(){
+
+        int[] dias = new int[31];
+
+        Random random = new Random();
+
+        for(int i = 0; i < dias.Length; i++){
+            dias[i] = random.Next(15, 41);
+        }
+
+        foreach (int temperaturas in dias){
+            Console.WriteLine(temperaturas + " °C");
+        }
+
+        Analises(dias);
+
+    }
+
+    public static void Analises(int[] days){
+
+
+        int[] temp = days;
+        int maiorT = int.MinValue;
+        int menorT = int.MaxValue;
+        int soma = 0;
+        int media = 0;
+        int menorMedia = 0;
+
+
+        for(int i = 0; i < temp.Length; i++){
+            if(temp[i] < menorT){
+                menorT = temp[i];
+            }
+            if(temp[i] > maiorT){
+                maiorT = temp[i];
+            }
+        }
+
+        for(int i = 0; i < temp.Length; i++){
+            soma += temp[i];
+        }
+
+        media = soma / temp.Length;
+        
+        for(int i = 0; i < temp.Length; i++){
+            if(temp[i] < media){
+                menorMedia++;
+            }
+        }
+
+        Console.WriteLine($"A menor Temperatura foi: {menorT} °C, A maior temperatura foi: {maiorT} °C");
+        Console.WriteLine($"A Temperatura media foi: {media} °C");
+        Console.WriteLine($"A quantidade de dias inferiores a temperatura media foi: {menorMedia} dias");
+    }
+
+}
+
+
+===============================================================
+Questão 07
+===============================================================
+
+using System;
+//Exercicio - 7
+
+namespace Primos;
+
+class MatrizPrimos{
+    public static void GerarMatriz(){
+
+        int[,] num = new int[3, 3];
+
+        Random random = new Random();
+
+        for (int i = 0; i < num.GetLength(0); i++){
+            for (int j = 0; j < num.GetLength(1); j++){
+                num[i, j] = random.Next(1, 31);
+                Console.Write($"{num[i, j],3}");
+            }
+            Console.WriteLine();
+        }
+
+        NumPrimos(num);
+    }
+
+    public static void NumPrimos(int[,] numeros){
+
+        int[,] num = numeros;
+        int[] numPri = new int[num.Length]; 
+        int p = 0;
+        int somaPrimos = 0;  
+
+        for (int i = 0; i < num.GetLength(0); i++){
+            for (int j = 0; j < num.GetLength(1); j++){
+                int n = num[i, j];  
+                bool isPrimo = true;  
+
+                if (n <= 1){
+                    isPrimo = false;
+                }
+                else{
+                    for (int k = 2; k < n; k++){
+                        if (n % k == 0){
+                            isPrimo = false;
+                            break;  
+                        }
+                    }
+                }
+
+                if (isPrimo){
+                    numPri[p] = n;
+                    Console.WriteLine(numPri[p]);
+                    somaPrimos += n;  
+                    p++;  
+                }
+            }
+        }
+
+        Console.WriteLine($"A soma dos números primos é: {somaPrimos}");
+    }
+}
+
+
+===============================================================
+Questão 08
+===============================================================
+
+using System;
+//Exercicio - 8
+
+namespace Matriz;
+
+class MatrizGerar{
+
+    public static void PreencherMatriz(int[,] M){
+        Random random = new Random();
+
+        for (int i = 0; i < 5; i++){
+            for (int j = 0; j < 5; j++){
+                M[i, j] = random.Next(1, 101); 
+                Console.Write($"{M[i, j],3}");
+            }
+            Console.WriteLine();
+        }
+    }
+
+    public static int SomaLinha3(int[,] M){
+        int soma = 0;
+        for (int j = 0; j < 5; j++){
+            soma += M[2, j];  
+        }
+        Console.WriteLine($"Soma da linha 3: {soma}");
+        return soma;
+    }
+
+    public static int SomaColuna2(int[,] M){
+        int soma = 0;
+        for (int i = 0; i < 5; i++){
+            soma += M[i, 1];  
+        }
+        Console.WriteLine($"Soma da coluna 2: {soma}");
+        return soma;
+    }
+
+    public static int SomaDiagonalPrincipal(int[,] M)
+    {
+        int soma = 0;
+        for (int i = 0; i < 5; i++){
+            soma += M[i, i]; 
+        }
+        Console.WriteLine($"Soma da diagonal principal: {soma}");
+        return soma;
+    }
+
+    public static int SomaDiagonalSecundaria(int[,] M){
+        int soma = 0;
+        for (int i = 0; i < 5; i++){
+            soma += M[i, 4 - i];  
+        }
+        Console.WriteLine($"Soma da diagonal secundária: {soma}");
+        return soma;
+    }
+
+    public static int SomaTotal(int[,] M){
+        int soma = 0;
+        for (int i = 0; i < 5; i++){
+            for (int j = 0; j < 5; j++){
+                soma += M[i, j]; 
+            }
+        }
+        Console.WriteLine($"Soma de todos os elementos: {soma}");
+        return soma;
+    }
+
+    public static void GerarMatrizEExibirSomas(){
+        int[,] M = new int[5, 5];  
+        PreencherMatriz(M);
+
+        SomaLinha3(M);
+        SomaColuna2(M);
+        SomaDiagonalPrincipal(M);
+        SomaDiagonalSecundaria(M);
+        SomaTotal(M);
+    }
+}
+
+
+===============================================================
+Questão 09
+===============================================================
+
+using System;
+//Exercise - 9
+
+namespace Transposta;
+
+class MatrizT{
+    
+    public static void PreencherMatriz(int[,] M){
+        Random random = new Random();
+
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                M[i, j] = random.Next(-10, 11); 
+            }
+        }
+    }
+
+    
+    public static int[,] MatrizTransposta(int[,] M){
+        int[,] AT = new int[3, 3];  
+
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                AT[j, i] = M[i, j]; 
+            }
+        }
+
+        return AT;
+    }
+
+    public static void ExibirMatriz(int[,] M){
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++)
+            {
+                Console.Write(M[i, j] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+
+    public static void GerarMatrizEExibirTransposta(){
+        int[,] M = new int[3, 3];  
+
+        PreencherMatriz(M);
+
+        Console.WriteLine("Matriz Original:");
+        ExibirMatriz(M);
+
+        int[,] AT = MatrizTransposta(M);
+
+        Console.WriteLine("\nMatriz Transposta:");
+        ExibirMatriz(AT);
+    }
+}
+
+
+===============================================================
+Questão 10
+===============================================================
+
+using System;
+//Exercicio - 10
+
+namespace TrocaMatriz;
+
+class MatrizTroca{
+    public static void PreencherMatriz(int[,] M){
+        Random random = new Random();
+
+        for (int i = 0; i < 10; i++){
+            for (int j = 0; j < 10; j++){
+                M[i, j] = random.Next(-10, 11);  
+            }
+        }
+    }
+
+    public static void ExibirMatriz(int[,] M){
+        for (int i = 0; i < 10; i++){
+            for (int j = 0; j < 10; j++){
+                Console.Write(M[i, j] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+
+    // Função para trocar a linha 2 com a linha 8
+    public static void TrocarLinha2ComLinha8(int[,] M){
+        for (int j = 0; j < 10; j++){
+            int temp = M[1, j]; 
+            M[1, j] = M[7, j];  
+            M[7, j] = temp;
+        }
+
+        Console.WriteLine("Matriz após trocar linha 2 com linha 8:");
+        ExibirMatriz(M);
+    }
+
+    public static void TrocarColuna4ComColuna10(int[,] M){
+        for (int i = 0; i < 10; i++){
+            int temp = M[i, 3];  
+            M[i, 3] = M[i, 9];  
+            M[i, 9] = temp;
+        }
+
+        Console.WriteLine("Matriz após trocar coluna 4 com coluna 10:");
+        ExibirMatriz(M);
+    }
+
+
+    public static void TrocarDiagonais(int[,] M){
+        for (int i = 0; i < 10; i++){
+            int temp = M[i, i];   
+            M[i, i] = M[i, 9 - i];  
+            M[i, 9 - i] = temp;
+        }
+
+        Console.WriteLine("Matriz após trocar diagonais:");
+        ExibirMatriz(M);
+    }
+
+    public static void GerarMatrizETrocar(){
+        int[,] M = new int[10, 10];  
+
+        PreencherMatriz(M);
+        Console.WriteLine("Matriz Original:");
+        ExibirMatriz(M);
+        TrocarLinha2ComLinha8(M);
+        TrocarColuna4ComColuna10(M);
+        TrocarDiagonais(M);
+    }
+}
+

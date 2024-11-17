@@ -34,21 +34,21 @@ public class UnirVetores{
 
     public static int[] Unir(int[] x, int[] y){
 
-    int[] z = new int[x.Length + y.Length]; 
-    int j = 0;
+        int[] z = new int[x.Length + y.Length]; 
+        int j = 0;
 
-    for (int i = 0; i < z.Length; i++){
+        for (int i = 0; i < z.Length; i++){
 
-        if (i % 2 == 0){
-            z[i] = y[j];
+            if (i % 2 == 0){
+                z[i] = y[j];
+            }
+            else{
+                z[i] = x[j];
+                j++; 
+            }
         }
-        else{
-            z[i] = x[j];
-            j++; 
-        }
+
+        return z;
     }
-
-    return z;
-}
 
 }
